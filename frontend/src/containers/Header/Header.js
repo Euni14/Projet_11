@@ -1,22 +1,23 @@
 import "./Header.css";
 import ArgentBankLogo from "../../assets/images/argentBankLogo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <nav class="main-nav">
-      <a class="main-nav-logo" href="./index.html">
+      <Link class="main-nav-logo" to="/">
         <img
           class="main-nav-logo-image"
           src={ArgentBankLogo}
           alt="Argent Bank Logo"
         />
         <h1 class="sr-only">Argent Bank</h1>
-      </a>
+      </Link>
       <div>
-        <a class="main-nav-item" href="./sign-in.html">
-          <i class="fa fa-user-circle"></i>
+        <Link class="main-nav-item" to="/Login">
+          <i class="fa fa-user-circle fa-fw"></i>
           Sign In
-        </a>
+        </Link>
       </div>
     </nav>
   );

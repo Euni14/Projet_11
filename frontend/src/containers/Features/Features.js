@@ -6,8 +6,8 @@ import "./Features.css";
 
 function Features() {
   return (
-    <section class="features">
-      <h2 class="sr-only">Features</h2>
+    <section className="features">
+      <h2 className="sr-only">Features</h2>
       <FeatureItem
         imgSrc={IconChat}
         imgAlt="Chat Icon"

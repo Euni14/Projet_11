@@ -6,11 +6,9 @@ import Header from "./containers/Header/Header";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
-      <div>
-        <Outlet />
-      </div>
+      <Outlet />
       <Footer />
     </div>
   );

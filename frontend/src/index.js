@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home/Home";
-import Account from "./pages/Account/Account";
+import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 
 const routerArgentBank = createBrowserRouter([
@@ -16,12 +16,12 @@ const routerArgentBank = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "/account",
-        element: <Account />,
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

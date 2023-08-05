@@ -14,6 +14,14 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
+        <Link className="main-nav-item" to="/profile">
+          <i className="fa fa-user-circle"></i>
+          Tony
+        </Link>
+        <Link className="main-nav-item" to="/">
+          <i className="fa fa-sign-out"></i>
+          Sign Out
+        </Link>
         <Link className="main-nav-item" to="/Login">
           <i className="fa fa-user-circle fa-fw"></i>
           Sign In

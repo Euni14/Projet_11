@@ -1,33 +1,51 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { updateUserName } from "./userActions";
 
 const initialState = {
-  token: null,
-  firtName: null,
+  email: null,
+  firstName: null,
   lastName: null,
   userName: null,
+  id: null,
+  error: null,
+  success: false,
+  isEditMode: false,
+  loading: false,
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    setUserProfile: (state, action) => {
+      state.email = action.payload.body.email;
+      state.firstName = action.payload.body.firstName;
+      state.lastName = action.payload.body.lastName;
+      state.userName = action.payload.body.userName;
     },
-    decrement: (state) => {
-      state.value -= 1;
+    setUserName: (state, action) => {
+      state.userName = action.payload.userName;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    setIsEditMode: (state, action) => {
+      console.log(action);
+      state.isEditMode = action.payload;
+    },
+  },
+  extraReducers: {
+    [updateUserName.pending]: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+    [updateUserName.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+    },
+    [updateUserName.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = userSlice.actions;
+export const { setUserProfile, setUserName, setIsEditMode } = userSlice.actions;
 
 export default userSlice.reducer;

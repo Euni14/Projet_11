@@ -6,7 +6,7 @@ const userToken = localStorage.getItem("userToken")
   : null;
 
 const initialState = {
-  userToken: null,
+  userToken,
   error: null,
   success: false,
   callApiLoading: false,
@@ -17,7 +17,7 @@ const authenticationSlice = createSlice({
   initialState,
   reducers: {
     login: (state, { payload }) => {
-      state.userToken = localStorage.getItemItem("userToken");
+      state.userToken = localStorage.getItem("userToken");
       state.error = null;
       state.success = true;
       state.callApiLoading = false;

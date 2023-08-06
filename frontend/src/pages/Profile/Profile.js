@@ -8,7 +8,7 @@ function Profile() {
   const { userName, isEditMode } = useSelector((state) => state.user);
 
   return (
-    <main className="main bg-dark">
+    <main className={isEditMode ? "main" : "main bg-dark"}>
       {!isEditMode && <ProfileHeader userName={userName} />}
       {isEditMode && <EditForm />}
       <AccountList />

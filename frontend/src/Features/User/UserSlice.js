@@ -30,6 +30,13 @@ export const userSlice = createSlice({
       console.log(action);
       state.isEditMode = action.payload;
     },
+    initUserProfile: (state, action) => {
+      state.email = null;
+      state.firstName = null;
+      state.lastName = null;
+      state.userName = null;
+      state.isEditMode = false;
+    },
   },
   extraReducers: {
     [updateUserName.pending]: (state) => {
@@ -46,6 +53,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setUserProfile, setUserName, setIsEditMode } = userSlice.actions;
+export const { setUserProfile, setUserName, setIsEditMode, initUserProfile } =
+  userSlice.actions;
 
 export default userSlice.reducer;

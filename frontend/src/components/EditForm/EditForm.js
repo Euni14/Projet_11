@@ -28,7 +28,7 @@ function EditForm() {
     dispatch(setIsEditMode(false));
   };
   return (
-    <main className="main bg-dark">
+    <main className={isEditMode ? "main" : "main bg-dark"}>
       <section className="sign-in-content">
         <h1>Edit user info</h1>
         {error && <Error>{error}</Error>}

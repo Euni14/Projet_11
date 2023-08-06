@@ -1,5 +1,12 @@
 .buttons{
     display: flex;
-    justify-content: space-between!important;
+    justify-content: center!important;
+    gap: 1.5rem;
+    width: 100%;
 
 }
+
+.input-wrapper, label {
+    padding-bottom: 0.5rem;
+}
+

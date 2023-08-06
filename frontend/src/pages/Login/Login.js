@@ -45,7 +45,7 @@ function Login() {
           </div>
 
           <button type="submit" className="sign-in-button" disabled={loading}>
-            {loading ? "Login in progress" : "Login"}
+            {loading ? "Login in progress" : "Sign In"}
           </button>
         </form>
       </section>

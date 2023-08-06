@@ -3,11 +3,8 @@ import ArgentBankLogo from "../../assets/images/argentBankLogo.png";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  useUserProfileMutation,
-  userApi,
-} from "../../services/user/userService";
-import { setUserProfile } from "../../Features/User/userSlice";
+import { useUserProfileMutation } from "../../services/user/userService";
+import { setUserProfile, initUserProfile } from "../../Features/User/userSlice";
 import { logout } from "../../Features/Authentication/authenticationSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +14,7 @@ function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [userProfile, result] = useUserProfileMutation();
+  const [userProfile] = useUserProfileMutation();
   useEffect(() => {
     if (userToken || localStorage.getItem("userToken")) {
       const asyncFn = async () => {
@@ -49,7 +46,10 @@ function Header() {
         {userToken && (
           <Link
             className="main-nav-item"
-            onClick={() => dispatch(logout())}
+            onClick={() => {
+              dispatch(logout());
+              dispatch(initUserProfile());
+            }}
             to="/"
           >
             <i className="fa fa-sign-out"></i>
